@@ -1,0 +1,5 @@
+appengine-java-sdk (@VERSION@) unstable; urgency=low
+
+  * Packaged as debian package
+
+ -- Hajo Eichler <eichler.hajoe@googlemail.com>  Thu, 24 May 2012 11:11:11 +0100

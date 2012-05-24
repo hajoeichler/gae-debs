@@ -1,0 +1,11 @@
+Source: appengine-java-sdk
+Maintainer: Hajo Eichler <eichler.hajo@googlemail.com>
+Section: misc
+Priority: optional
+Build-Depends: debhelper (>= 8)
+
+Package: appengine-java-sdk
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, default-jre-headless
+Description: Google App Engine SDK for Java
+ As Debian Package.
