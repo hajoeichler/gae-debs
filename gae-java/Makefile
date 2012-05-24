@@ -18,7 +18,7 @@ install:
 	cp -r "$(GAE_HOME)/lib/"* "$(DESTDIR)/usr/share/gae/lib/"
 	# copy docs
 	mkdir -p "$(DESTDIR)/usr/share/gae/docs"
-	cp -r "$(GAE_HOME)/docs/"*.xsd" "$(DESTDIR)/usr/share/gae/docs/"
+	cp -r "$(GAE_HOME)/docs/"*.xsd "$(DESTDIR)/usr/share/gae/docs/"
 	# copy binaries
 	mkdir -p "$(DESTDIR)/usr/bin"
 	cp "$(GAE_HOME)/bin/appcfg.sh" "$(DESTDIR)/usr/bin/"
