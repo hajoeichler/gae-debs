@@ -1,6 +1,6 @@
 #! /bin/bash
 
-version=1.6.5-ct1
+version=1.6.5
 
 log() {
     echo "$@"
