@@ -1,7 +1,5 @@
 #! /bin/bash
 
-version=1.6.5
-
 log() {
     echo "$@"
 }
@@ -19,7 +17,7 @@ get() {
     fi
     mkdir -p "$download/$version"
     cd "$download/$version"
-    wget --output-document=appengine-java-sdk.zip http://googleappengine.googlecode.com/files/appengine-java-sdk-"${version}".zip
+    wget --output-document=appengine-java-sdk.zip "http://googleappengine.googlecode.com/files/appengine-java-sdk-${version}".zip
 }
 
 extract() {
@@ -39,6 +37,7 @@ package() {
     debuild --set-envvar="GAE_HOME=${work}/appengine-java-sdk-${version}" -uc -us -b
 }
 
+version="1.6.5"
 base=$(dirname $(readlink -f "$0"))
 work="$base/work"
 download="$base/download"
