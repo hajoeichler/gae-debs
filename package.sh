@@ -31,6 +31,11 @@ set_version() {
     sed -i "s/@VERSION@/${version}/g" "${debian}/debian/changelog"
 }
 
+reset_version() {
+    log "Reset version"
+    git checkout -- "${debian}/debian/changelog"
+}
+
 package() {
     log "Package as debian - $version"
     cd ${debian}
@@ -39,9 +44,9 @@ package() {
 
 version="1.6.5"
 base=$(dirname $(readlink -f "$0"))
-work="$base/work"
-download="$base/download"
-debian="$base/gae-java"
+work="${base}/work"
+download="${base}/download"
+debian="${base}/gae-java"
 
 set -e
 
@@ -50,3 +55,4 @@ get
 extract
 set_version
 package
+reset_version
