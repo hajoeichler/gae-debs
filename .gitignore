@@ -1,0 +1,10 @@
+*.build
+*.deb
+*.changes
+download
+work
+gae-java/debian/appengine-java-sdk.debhelper.log
+gae-java/debian/appengine-java-sdk.substvars
+gae-java/debian/appengine-java-sdk
+gae-java/debian/files
+
