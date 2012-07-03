@@ -1,5 +1,7 @@
 #! /bin/bash
 
+version=1.7.0
+
 log() {
     echo "$@"
 }
@@ -18,6 +20,7 @@ get() {
     mkdir -p "$download/$version"
     cd "$download/$version"
     wget --output-document=appengine-java-sdk.zip "http://googleappengine.googlecode.com/files/appengine-java-sdk-${version}".zip
+    cd -
 }
 
 extract() {
@@ -40,9 +43,15 @@ package() {
     log "Package as debian - $version"
     cd ${debian}
     debuild --set-envvar="GAE_HOME=${work}/appengine-java-sdk-${version}" -uc -us -b
+    cd -
 }
 
-version="1.6.5"
+revert_changes() {
+    log "Reverting changes to changelog"
+    cd "${debian}"
+    git checkout -- debian/changelog
+}
+
 base=$(dirname $(readlink -f "$0"))
 work="${base}/work"
 download="${base}/download"
@@ -55,4 +64,4 @@ get
 extract
 set_version
 package
-reset_version
+revert_changes
